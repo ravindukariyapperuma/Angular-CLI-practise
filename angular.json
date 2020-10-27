@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "my-learn-app"
+    }
+  },
+  "defaultProject": "my-learn-app",
+  "cli": {
+    "analytics": "2e25b8ae-e3f2-4d7c-bee9-ffcc8a76a2bc"
+  }
 }
