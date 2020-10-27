@@ -5,16 +5,35 @@ import { Component, OnInit } from '@angular/core';
   template: `<div>
                 Welcome {{name}}
               </div>
-              <input [id]="myId" type="text" value="Ravindu">
-              <input bind-disabled="isDisabled" id={{myId}} type="text" value="Ravindu">
+              <h2 class="text-success">Sri Lanka</h2>
+              <h2 [class]="successClass">Sri Lanka</h2>
+              <h2 class="text-special" [class]="successClass">Sri Lanka</h2>
+              <h2 [class.text-danger]="hasError">Sri Lanka</h2>
+              <h2 [ngClass]="messageClasses">Sri Lanka</h2>
   `,
-  styleUrls: ['./test.component.css']
+  styles: [`
+    .text-success {
+      color: green;
+    }
+    .text-danger {
+      color: red;
+    }
+    .text-special {
+      font-style: italic;
+    }
+  `]
 })
 export class TestComponent implements OnInit {
 
   public name = "Lakshan";
-  public myId = "testId";
-  public isDisabled = false;
+  public successClass = "text-success";
+  public hasError = true;
+  public isSpecial = true;
+  public messageClasses = {
+    "text-success": !this.hasError,
+    "text-danger": this.hasError,
+    "text-special": this.isSpecial
+  }
   constructor() { }
 
   ngOnInit(): void {
